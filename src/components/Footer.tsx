@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (
       <>
-        <section className="bg-blue-950 text-white py-12">
+        <section className="bg-[#020230] text-white py-12">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               {/* Rechtliches Section */}
@@ -114,7 +114,7 @@ const Footer = () => {
         </section>
 
         {/* Copyright Section */}
-        <footer className="bg-blue-950 text-white py-4 border-t border-white/20">
+        <footer className="bg-[#020230] text-white py-4 border-t border-white/20">
           <div className="container mx-auto px-4 text-center">
             <p>&copy; {currentYear} All Rights Reserved By FuchsHost</p>
           </div>
