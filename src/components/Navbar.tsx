@@ -23,7 +23,7 @@ const Navbar = () => {
                   className="h-10"
                   onError={(e) => {
                     // Fallback wenn das Logo nicht geladen werden kann
-                    e.currentTarget.src = "/placeholder.svg?height=40&width=120"
+                    e.currentTarget.src = "LOGO"
                   }}
               />
             </Link>
@@ -58,8 +58,8 @@ const Navbar = () => {
                 </li>
                 <li>
                   <Link
-                      to="/web-server"
-                      className={`uppercase px-2 py-1 transition ${isActive("/web-server") ? "text-cyan-400" : "hover:text-gray-300"}`}
+                      to="/webhosting"
+                      className={`uppercase px-2 py-1 transition ${isActive("/webhosting") ? "text-cyan-400" : "hover:text-gray-300"}`}
                   >
                     Web Server
                   </Link>

@@ -1,27 +1,48 @@
-import { ArrowRight } from "lucide-react"
+import React from "react";
 
 interface ServiceCardProps {
-    image: string
-    title: string
-    description: string
+    image: string;
+    title: string;
+    description: string;
 }
 
-const ServiceCard = ({ image, title, description }: ServiceCardProps) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ image, title, description }) => {
     return (
-        <div className="bg-white p-6 rounded shadow hover:shadow-lg transition flex flex-col items-center text-center">
-            <div className="w-20 h-20 rounded-full bg-cyan-500 flex items-center justify-center mb-4">
-                <img src={image || "/placeholder.svg"} alt={title} className="w-12 h-12 object-contain" />
+        <div className="h-full flex flex-col">
+            {/* Image Container */}
+            <div className="mb-6">
+                <img
+                    src={image}
+                    alt={title}
+                    className="w-16 h-16 object-contain"
+                />
             </div>
-            <div>
-                <h4 className="text-xl font-bold mb-2">{title}</h4>
-                <p className="text-gray-600 mb-4">{description}</p>
-                <a href="#" className="text-cyan-500 hover:text-red-500 flex items-center justify-center gap-1 transition">
-                    Read More
-                    <ArrowRight size={18} />
-                </a>
+
+            {/* Content */}
+            <h3 className="text-xl font-bold mb-3 text-cyan-300">{title}</h3>
+            <p className="text-white/70 flex-grow">{description}</p>
+
+            {/* Interactive Elements */}
+            <div className="mt-6">
+                <button className="text-cyan-300 flex items-center gap-2 group transition-all duration-300 hover:text-cyan-400">
+                    <span>Mehr Details</span>
+                    <svg
+                        className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                        />
+                    </svg>
+                </button>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default ServiceCard
+export default ServiceCard;

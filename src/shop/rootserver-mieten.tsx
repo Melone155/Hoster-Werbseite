@@ -50,7 +50,7 @@ function App() {
             <div className="max-w-4xl mx-auto">
                 <div className="flex items-center gap-3 mb-8">
                     <Server className="w-8 h-8 text-white" />
-                    <h1 className="text-3xl font-bold">Server Configuration</h1>
+                    <h1 className="text-3xl font-bold">Root-Server Configuration</h1>
                 </div>
 
                 {/* Operating System Selection */}
