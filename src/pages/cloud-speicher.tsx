@@ -1,6 +1,7 @@
-import { Shield, Server, Wifi, CreditCard, ArrowRight, HeadsetIcon, Clock, Globe, Database, Lock } from 'lucide-react';
+import { Shield, ArrowRight, HeadsetIcon, Clock, Database, Lock, Smartphone, Share2, FolderSync } from 'lucide-react';
 import {Link} from "react-router-dom";
-import backgroundImage from '../assets/webhoster-backround.jpeg';
+
+import backgroundImage from '../assets/cloud-backround.jpeg';
 
 function App() {
     return (
@@ -18,16 +19,16 @@ function App() {
                 />
                 <div className="relative container mx-auto px-4">
                     <h1 className="text-5xl font-bold mb-6 max-w-3xl">
-                        Professionelles Webhosting für Ihre Online-Präsenz
+                        Sicherer Cloud-Speicher für Ihre Daten
                     </h1>
                     <p className="text-xl text-white/80 max-w-2xl mb-8">
-                        Schnelles, sicheres und zuverlässiges Hosting mit modernster Technologie.
-                        Ideal für Websites, Online-Shops und Blogs.
+                        Speichern, synchronisieren und teilen Sie Ihre Daten sicher und einfach.
+                        Zugriff von überall - über Browser, App oder Samba-Verbindung.
                     </p>
-                    <Link to="/shop/webhosting">
+                    <Link to="/shop/cloud-storage">
                         <button
                             className="bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 rounded-lg font-semibold text-lg flex items-center gap-2 hover:opacity-90 transition-opacity">
-                            Hosting bestellen <ArrowRight className="w-5 h-5"/>
+                            Cloud-Speicher einrichten <ArrowRight className="w-5 h-5"/>
                         </button>
                     </Link>
                 </div>
@@ -37,24 +38,24 @@ function App() {
             <div className="container mx-auto px-4 py-20">
                 <div className="grid md:grid-cols-3 gap-8">
                     <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
-                        <Globe className="w-10 h-10 text-cyan-400 mb-4" />
-                        <h3 className="text-xl font-semibold mb-2">Optimierte Performance</h3>
+                        <Share2 className="w-10 h-10 text-cyan-400 mb-4" />
+                        <h3 className="text-xl font-semibold mb-2">Flexibler Zugriff</h3>
                         <p className="text-white/70">
-                            Schnelle Hardware für optimale Ladezeiten Ihrer Website.
+                            Greifen Sie über Browser, Mobile App oder Samba auf Ihre Daten zu.
                         </p>
                     </div>
                     <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
                         <Database className="w-10 h-10 text-blue-400 mb-4" />
-                        <h3 className="text-xl font-semibold mb-2">Schneller Speicher</h3>
+                        <h3 className="text-xl font-semibold mb-2">Großer Speicherplatz</h3>
                         <p className="text-white/70">
-                            Schneller Speicherplatz für alle Ihre Webinhalte und Datenbanken.
+                            Bis zu 10TB Speicherplatz für all Ihre wichtigen Daten und Dokumente.
                         </p>
                     </div>
                     <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
                         <Lock className="w-10 h-10 text-cyan-400 mb-4" />
-                        <h3 className="text-xl font-semibold mb-2">SSL-Zertifikate</h3>
+                        <h3 className="text-xl font-semibold mb-2">Verschlüsselt & Sicher</h3>
                         <p className="text-white/70">
-                            Kostenlose SSL-Zertifikate für die Sicherheit Ihrer Besucher.
+                            End-to-End Verschlüsselung für maximale Sicherheit Ihrer Daten.
                         </p>
                     </div>
                 </div>
@@ -63,34 +64,34 @@ function App() {
             {/* Technical Details */}
             <div className="bg-white/5">
                 <div className="container mx-auto px-4 py-20">
-                    <h2 className="text-3xl font-bold mb-12 text-center">Hosting Features</h2>
+                    <h2 className="text-3xl font-bold mb-12 text-center">Cloud Features</h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <div className="flex items-start gap-4">
-                            <Server className="w-6 h-6 text-cyan-400 flex-shrink-0" />
+                            <FolderSync className="w-6 h-6 text-cyan-400 flex-shrink-0" />
                             <div>
-                                <h3 className="font-semibold mb-2">PHP & MySQL</h3>
-                                <p className="text-white/70">Neueste PHP-Versionen & MySQL-Datenbanken</p>
+                                <h3 className="font-semibold mb-2">Automatische Synchronisation</h3>
+                                <p className="text-white/70">Alle Geräte immer auf dem neuesten Stand</p>
                             </div>
                         </div>
                         <div className="flex items-start gap-4">
-                            <Wifi className="w-6 h-6 text-blue-400 flex-shrink-0" />
+                            <Smartphone className="w-6 h-6 text-blue-400 flex-shrink-0" />
                             <div>
-                                <h3 className="font-semibold mb-2">FTP-Zugang</h3>
-                                <p className="text-white/70">Einfacher Dateizugriff via FTP/SFTP</p>
+                                <h3 className="font-semibold mb-2">Mobile Apps</h3>
+                                <p className="text-white/70">iOS und Android Apps verfügbar</p>
                             </div>
                         </div>
                         <div className="flex items-start gap-4">
                             <Shield className="w-6 h-6 text-cyan-400 flex-shrink-0" />
                             <div>
                                 <h3 className="font-semibold mb-2">Backup-Service</h3>
-                                <p className="text-white/70">1-Click Backups Ihrer Daten</p>
+                                <p className="text-white/70">Automatische Backups Ihrer Daten</p>
                             </div>
                         </div>
                         <div className="flex items-start gap-4">
-                            <CreditCard className="w-6 h-6 text-blue-400 flex-shrink-0" />
+                            <Share2 className="w-6 h-6 text-blue-400 flex-shrink-0" />
                             <div>
-                                <h3 className="font-semibold mb-2">1-Click Installer</h3>
-                                <p className="text-white/70">WordPress, Joomla & mehr mit einem Klick</p>
+                                <h3 className="font-semibold mb-2">Dateien teilen</h3>
+                                <p className="text-white/70">Einfaches Teilen mit Freigabelinks</p>
                             </div>
                         </div>
                     </div>
@@ -105,7 +106,7 @@ function App() {
                         <HeadsetIcon className="w-12 h-12 text-cyan-400 mb-6" />
                         <h3 className="text-2xl font-semibold mb-4">Persönlicher Support</h3>
                         <p className="text-white/70 mb-6">
-                            Unser Support-Team hilft Ihnen bei allen Fragen rund um Ihr Hosting:
+                            Unser Support-Team hilft Ihnen bei allen Fragen zu Ihrem Cloud-Speicher:
                         </p>
                         <ul className="space-y-3 text-white/70">
                             <li className="flex items-center gap-2">
@@ -114,28 +115,28 @@ function App() {
                             </li>
                             <li className="flex items-center gap-2">
                                 <div className="w-2 h-2 rounded-full bg-blue-400"></div>
-                                Ausführliche Dokumentation
+                                Setup-Hilfe
                             </li>
                             <li className="flex items-center gap-2">
                                 <div className="w-2 h-2 rounded-full bg-cyan-400"></div>
-                                Video-Tutorials
+                                Einrichtungsanleitungen
                             </li>
                         </ul>
                     </div>
                     <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8">
                         <Clock className="w-12 h-12 text-blue-400 mb-6" />
-                        <h3 className="text-2xl font-semibold mb-4">Hosting Features</h3>
+                        <h3 className="text-2xl font-semibold mb-4">Cloud Features</h3>
                         <p className="text-white/70 mb-6">
-                            Alle Vorteile unseres Webhostings auf einen Blick:
+                            Alle Vorteile unseres Cloud-Speichers auf einen Blick:
                         </p>
                         <ul className="space-y-3 text-white/70">
                             <li className="flex items-center gap-2">
                                 <div className="w-2 h-2 rounded-full bg-blue-400"></div>
-                                Kostenlose Sub-Domain
+                                Verschlüsselte Übertragung
                             </li>
                             <li className="flex items-center gap-2">
                                 <div className="w-2 h-2 rounded-full bg-cyan-400"></div>
-                                99,9% Uptime-Garantie
+                                99,9% Verfügbarkeit
                             </li>
                             <li className="flex items-center gap-2">
                                 <div className="w-2 h-2 rounded-full bg-blue-400"></div>
