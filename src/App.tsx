@@ -11,6 +11,10 @@ import Domain from "./pages/domain.tsx"
 
 import RootServerShop from "./shop/rootserver-mieten.tsx"
 
+import Login from "./dashboard/login.tsx"
+import Register from "./dashboard/register.tsx"
+import ResetPassword from "./dashboard/passwort-forget.tsx"
+
 import NotFound from "./pages/NotFound.tsx";
 
 function App() {
@@ -26,6 +30,10 @@ function App() {
         <Route path="/domain" element={<Domain />} />
 
         <Route path="/shop/root-server" element={<RootServerShop />} />
+
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
 
         <Route path="/*" element={<NotFound />} />
       </Routes>
