@@ -2,9 +2,12 @@ import { Shield, ArrowRight, HeadsetIcon, Clock, Database, Lock, Smartphone, Sha
 import {Link} from "react-router-dom";
 
 import backgroundImage from '../assets/cloud-backround.jpeg';
+import Navbar from "../components/Navbar.tsx";
 
 function App() {
     return (
+        <>
+        <Navbar />
         <div className="min-h-screen bg-[#020230] text-white">
             {/* Hero Section */}
             <div className="relative h-[600px] flex items-center">
@@ -147,6 +150,7 @@ function App() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

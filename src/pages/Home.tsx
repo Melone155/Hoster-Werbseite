@@ -1,9 +1,12 @@
 import ServiceCard from "../components/ServiceCard"
 import RotatingText from "../components/RotatingText"
 import {Shield, Cpu, HardDrive, ArrowRight } from 'lucide-react'
+import Navbar from "../components/Navbar.tsx";
 
 const Home = () => {
   return (
+      <>
+      <Navbar />
       <main className="bg-[#020230]">
         {/* Hero Section with RotatingText - Kept unchanged as requested */}
         <section className="text-white py-12 lg:min-h-screen lg:flex lg:items-center relative">
@@ -160,6 +163,7 @@ const Home = () => {
           </div>
         </section>
       </main>
+      </>
   )
 }
 

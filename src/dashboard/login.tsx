@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from "../components/Navbar.tsx";
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -7,11 +8,12 @@ const Login = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // TODO: Implement login logic
         console.log('Login attempt:', { email, password });
     };
 
     return (
+        <>
+        <Navbar />
         <div className="min-h-screen bg-gradient-to-b from-[#020230] to-[#050550] flex items-center justify-center px-4">
             <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-xl shadow-2xl">
                 <div className="text-center">
@@ -80,6 +82,7 @@ const Login = () => {
                 </form>
             </div>
         </div>
+        </>
     );
 };
 

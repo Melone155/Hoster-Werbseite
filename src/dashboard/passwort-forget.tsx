@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from "../components/Navbar.tsx";
 
 const ResetPassword = () => {
     const [email, setEmail] = useState('');
@@ -7,12 +8,13 @@ const ResetPassword = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // TODO: Implement password reset logic
         console.log('Reset password for:', email);
         setIsSubmitted(true);
     };
 
     return (
+        <>
+        <Navbar />
         <div className="min-h-screen bg-gradient-to-b from-[#020230] to-[#050550] flex items-center justify-center px-4">
             <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-xl shadow-2xl">
                 <div className="text-center">
@@ -69,6 +71,7 @@ const ResetPassword = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

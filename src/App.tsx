@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 
 import Home from "./pages/Home"
@@ -14,13 +13,13 @@ import RootServerShop from "./shop/rootserver-mieten.tsx"
 import Login from "./dashboard/login.tsx"
 import Register from "./dashboard/register.tsx"
 import ResetPassword from "./dashboard/passwort-forget.tsx"
+import MeineServer from "./dashboard/meine-server.tsx";
 
 import NotFound from "./pages/NotFound.tsx";
 
 function App() {
   return (
     <Router>
-      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/root-server" element={<RootServer />} />
@@ -34,6 +33,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/dashboard/meineserver" element={<MeineServer />} />
+
 
         <Route path="/*" element={<NotFound />} />
       </Routes>

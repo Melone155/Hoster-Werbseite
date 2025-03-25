@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from "../components/Navbar.tsx";
 
 const Register = () => {
     const [accountType, setAccountType] = useState<'private' | 'business'>('private');
@@ -34,6 +35,8 @@ const Register = () => {
     };
 
     return (
+        <>
+        <Navbar />
         <div className="min-h-screen bg-gradient-to-b from-[#020230] to-[#050550] flex items-center justify-center px-4 py-12">
             <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-xl shadow-2xl">
                 <div className="text-center">
@@ -277,6 +280,7 @@ const Register = () => {
                 </form>
             </div>
         </div>
+        </>
     );
 };
 

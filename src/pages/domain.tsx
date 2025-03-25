@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Search, Globe, Shield, Settings, ArrowRight } from 'lucide-react';
+import Navbar from "../components/Navbar.tsx";
 
 function Domains() {
     const [domainName, setDomainName] = useState('');
@@ -32,6 +33,8 @@ function Domains() {
     ];
 
     return (
+        <>
+        <Navbar />
         <div className="min-h-screen bg-[#020230] text-white">
             {/* Hero Section */}
             <div className="relative py-20">
@@ -114,6 +117,7 @@ function Domains() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

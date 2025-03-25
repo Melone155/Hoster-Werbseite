@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FuzzyText from '../components/FuzzyText';
 import { Home } from 'lucide-react';
+import Navbar from "../components/Navbar.tsx";
 
 function NotFound() {
     const navigate = useNavigate();
@@ -9,6 +10,8 @@ function NotFound() {
     const [enableHover] = useState(true);
 
     return (
+        <>
+        <Navbar />
         <div className="fixed inset-0 bg-[#020230] text-white flex items-center justify-center">
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-blue-600/10" />
 
@@ -42,6 +45,7 @@ function NotFound() {
                 </button>
             </div>
         </div>
+        </>
     );
 }
 
