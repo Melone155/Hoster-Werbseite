@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Server, Link as Linux, AppWindow as Windows, Cpu, MemoryStick as Memory, HardDrive, Clock } from 'lucide-react';
+import Navbar from "../components/Navbar.tsx";
 
 type OS = 'linux' | 'windows';
 type LinuxDistro = 'debian12' | 'debian11' | 'ubuntu';
@@ -47,6 +48,8 @@ function App() {
 
 
     return (
+        <>
+        <Navbar />
         <div className="min-h-screen bg-[#020230] text-white p-8">
             <div className="max-w-4xl mx-auto">
                 <div className="flex items-center gap-3 mb-8">
@@ -218,6 +221,7 @@ function App() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 
