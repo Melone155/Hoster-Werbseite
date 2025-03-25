@@ -13,7 +13,7 @@ import RootServerShop from "./shop/rootserver-mieten.tsx"
 import Login from "./dashboard/login.tsx"
 import Register from "./dashboard/register.tsx"
 import ResetPassword from "./dashboard/passwort-forget.tsx"
-import MeineServer from "./dashboard/meine-server.tsx";
+import MeineServer from "./dashboard/meineServer.tsx";
 
 import NotFound from "./pages/NotFound.tsx";
 

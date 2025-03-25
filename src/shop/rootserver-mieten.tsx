@@ -19,9 +19,9 @@ function App() {
     const [config, setConfig] = useState<ServerConfig>({
         os: 'linux',
         distro: 'debian12',
-        cpu: 2,
-        ram: 4,
-        storage: 50,
+        cpu: 1,
+        ram: 2,
+        storage: 25,
         months: 1
     });
 
@@ -34,13 +34,14 @@ function App() {
         const totalPrice = (basePrice + cpuPrice + ramPrice + storagePrice) * config.months;
         const discount = getDiscount(config.months);
 
-        return totalPrice * (1 - discount);
+        return (totalPrice * (1 - discount)).toFixed(2);
     };
 
     const getDiscount = (months: number) => {
         if (months >= 9) return 0.15; // from 9 Month 15% Rabatt
         if (months >= 6) return 0.10; // from 6 Month 10% Rabatt
         if (months >= 3) return 0.05; // from 3 Month 5% Rabatt
+        if (months >= 2) return 0.00;
         return 0.00;
     };
 
@@ -57,7 +58,7 @@ function App() {
                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6 mb-6">
                     <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
                         {config.os === 'linux' ? <Linux className="w-5 h-5" /> : <Windows className="w-5 h-5" />}
-                        Operating System
+                        Betriebssystem
                     </h2>
                     <div className="flex gap-4 mb-4">
                         <button
@@ -156,7 +157,7 @@ function App() {
                             <div className="flex justify-between mb-2">
                                 <label className="flex items-center gap-2">
                                     <HardDrive className="w-4 h-4" />
-                                    Storage
+                                    Speicher
                                 </label>
                                 <span className="text-white/90">{config.storage} GB</span>
                             </div>
@@ -177,7 +178,7 @@ function App() {
                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6 mb-6">
                     <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
                         <Clock className="w-5 h-5"/>
-                        Rental Period
+                        Mietdauer
                     </h2>
                     <select
                         className="w-full bg-[#020230] text-white border border-white/10 rounded-lg p-3 appearance-none focus:outline-none"
@@ -203,14 +204,14 @@ function App() {
                 <div className="bg-blue-600 rounded-lg p-6">
                     <div className="flex justify-between items-center">
                         <div>
-                            <h3 className="text-xl font-semibold mb-2">Total Price</h3>
-                            <p className="text-white/70">Billed {config.months === 1 ? 'monthly' : `every ${config.months} months`}</p>
+                            <h3 className="text-xl font-semibold mb-2">Gesamtpreis (inkl. MwSt)</h3>
+                            <p className="text-white/70">Zahlung {config.months === 1 ? 'Abrechnung' : `alle  ${config.months} Monate`}</p>
                         </div>
                         <div className="text-right">
-                            <div className="text-3xl font-bold">${calculatePrice()}</div>
+                            <div className="text-3xl font-bold">€{calculatePrice()}</div>
                             <button
                                 className="mt-2 bg-white hover:bg-white/90 text-[#020230] px-6 py-2 rounded-lg font-semibold transition-colors">
-                                Deploy Server
+                                Server bereitstellen
                             </button>
                         </div>
                     </div>
