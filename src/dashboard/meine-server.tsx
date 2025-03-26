@@ -1,3 +1,6 @@
+import { Shield, Cpu, HardDrive, Power, Settings, RefreshCw } from 'lucide-react';
+import Navbar from '../components/Sidebar.tsx';
+
 interface Server {
     id: string;
     name: string;
@@ -13,7 +16,6 @@ interface Server {
 }
 
 const MyServers = () => {
-    // Beispiel-Daten (später durch echte API-Daten ersetzen)
     const servers: Server[] = [
         {
             id: '1',
@@ -59,80 +61,101 @@ const MyServers = () => {
     const getStatusColor = (status: Server['status']) => {
         switch (status) {
             case 'online':
-                return 'bg-green-500';
+                return 'text-green-400';
             case 'offline':
-                return 'bg-red-500';
+                return 'text-red-400';
             case 'maintenance':
-                return 'bg-yellow-500';
+                return 'text-yellow-400';
             default:
-                return 'bg-gray-500';
+                return 'text-gray-400';
+        }
+    };
+
+    const getStatusBg = (status: Server['status']) => {
+        switch (status) {
+            case 'online':
+                return 'bg-green-400/10';
+            case 'offline':
+                return 'bg-red-400/10';
+            case 'maintenance':
+                return 'bg-yellow-400/10';
+            default:
+                return 'bg-gray-400/10';
         }
     };
 
     return (
-        <div className="p-6">
-            <div className="mb-6">
-                <h1 className="text-2xl font-bold text-gray-900">Meine Server</h1>
-                <p className="text-gray-600">Übersicht und Verwaltung Ihrer Server</p>
-            </div>
+        <>
+            <Navbar />
+            <div className="min-h-screen bg-[#020230] text-white">
+                {/* Hero Section */}
+                <div className="relative py-12">
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/20 to-blue-600/20 mix-blend-multiply"/>
+                    <div className="container mx-auto px-4">
+                        <h1 className="text-4xl font-bold mb-4">Meine Server</h1>
+                        <p className="text-white/70 max-w-2xl">
+                            Verwalten Sie Ihre Server und behalten Sie die Performance im Blick
+                        </p>
+                    </div>
+                </div>
 
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {servers.map((server) => (
-                    <div key={server.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                        <div className="p-6">
-                            <div className="flex items-center justify-between mb-4">
-                                <h2 className="text-xl font-semibold text-gray-900">{server.name}</h2>
-                                <div className="flex items-center">
-                                    <div className={`w-3 h-3 rounded-full ${getStatusColor(server.status)} mr-2`}></div>
-                                    <span className="text-sm text-gray-600 capitalize">{server.status}</span>
-                                </div>
-                            </div>
-
-                            <div className="space-y-3">
-                                <div className="flex justify-between text-sm">
-                                    <span className="text-gray-600">Typ:</span>
-                                    <span className="text-gray-900">{server.type}</span>
-                                </div>
-                                <div className="flex justify-between text-sm">
-                                    <span className="text-gray-600">IP-Adresse:</span>
-                                    <span className="text-gray-900">{server.ip}</span>
-                                </div>
-                                <div className="flex justify-between text-sm">
-                                    <span className="text-gray-600">Standort:</span>
-                                    <span className="text-gray-900">{server.location}</span>
-                                </div>
-
-                                <div className="pt-3 border-t border-gray-200">
-                                    <div className="grid grid-cols-3 gap-4 text-center">
-                                        <div>
-                                            <div className="text-xs text-gray-600">CPU</div>
-                                            <div className="text-sm font-medium text-gray-900">{server.specs.cpu}</div>
+                {/* Server Grid */}
+                <div className="container mx-auto px-4 py-12">
+                    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                        {servers.map((server) => (
+                            <div key={server.id} className="group relative">
+                                <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-300"/>
+                                <div className="relative bg-[#040440] rounded-xl overflow-hidden">
+                                    <div className="p-6">
+                                        <div className="flex items-center justify-between mb-4">
+                                            <h2 className="text-xl font-semibold">{server.name}</h2>
+                                            <div className={`px-3 py-1 rounded-full text-sm ${getStatusBg(server.status)} ${getStatusColor(server.status)}`}>
+                                                {server.status}
+                                            </div>
                                         </div>
-                                        <div>
-                                            <div className="text-xs text-gray-600">RAM</div>
-                                            <div className="text-sm font-medium text-gray-900">{server.specs.ram}</div>
-                                        </div>
-                                        <div>
-                                            <div className="text-xs text-gray-600">Storage</div>
-                                            <div className="text-sm font-medium text-gray-900">{server.specs.storage}</div>
+
+                                        <div className="space-y-4">
+                                            <div className="grid grid-cols-2 gap-4">
+                                                <div className="flex items-center gap-2">
+                                                    <Cpu className="w-5 h-5 text-cyan-400" />
+                                                    <span className="text-white/70">{server.specs.cpu}</span>
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <HardDrive className="w-5 h-5 text-cyan-400" />
+                                                    <span className="text-white/70">{server.specs.ram}</span>
+                                                </div>
+                                            </div>
+
+                                            <div className="flex items-center gap-2">
+                                                <Shield className="w-5 h-5 text-cyan-400" />
+                                                <span className="text-white/70">{server.ip}</span>
+                                            </div>
+
+                                            <div className="pt-4 border-t border-white/10">
+                                                <div className="grid grid-cols-3 gap-2">
+                                                    <button className="flex items-center justify-center gap-2 px-3 py-2 bg-cyan-500 hover:bg-cyan-600 rounded-lg transition-colors">
+                                                        <Settings className="w-4 h-4" />
+                                                        <span>Verwalten</span>
+                                                    </button>
+                                                    <button className="flex items-center justify-center gap-2 px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-colors">
+                                                        <Power className="w-4 h-4" />
+                                                        <span>Start</span>
+                                                    </button>
+                                                    <button className="flex items-center justify-center gap-2 px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-colors">
+                                                        <RefreshCw className="w-4 h-4" />
+                                                        <span>Neustart</span>
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div className="mt-6 flex space-x-3">
-                                <button className="flex-1 bg-cyan-500 text-white py-2 px-4 rounded-md hover:bg-cyan-600 transition-colors">
-                                    Verwalten
-                                </button>
-                                <button className="flex-1 border border-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-50 transition-colors">
-                                    Neustart
-                                </button>
-                            </div>
-                        </div>
+                        ))}
                     </div>
-                ))}
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
