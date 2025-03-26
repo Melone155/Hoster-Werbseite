@@ -13,7 +13,9 @@ import RootServerShop from "./shop/rootserver-mieten.tsx"
 import Login from "./dashboard/login.tsx"
 import Register from "./dashboard/register.tsx"
 import ResetPassword from "./dashboard/passwort-forget.tsx"
-import MeineServer from "./dashboard/meineServer.tsx";
+import MeineServer from "./dashboard/meine-server.tsx";
+import Bestellungen from "./dashboard/bestellunge.tsx";
+
 
 import NotFound from "./pages/NotFound.tsx";
 
@@ -34,6 +36,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/dashboard/meineserver" element={<MeineServer />} />
+        <Route path="/dashboard/order" element={<Bestellungen />} />
 
 
         <Route path="/*" element={<NotFound />} />
