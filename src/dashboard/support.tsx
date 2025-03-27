@@ -1,10 +1,7 @@
-Kannst du bitte die Prirität raus machen und gegen so etwas die Frage, Störung, Problem, Technischer Frage, Zahlung Sonstiges erstzen
-
-
 import React, { useState } from 'react';
 import { MessageSquarePlus } from 'lucide-react';
 
-type TicketPriority = 'low' | 'medium' | 'high';
+type TicketType = 'question' | 'issue' | 'problem' | 'technical' | 'billing' | 'other';
 type TicketStatus = 'open' | 'in_progress' | 'closed';
 
 interface Ticket {
@@ -12,14 +9,14 @@ interface Ticket {
     title: string;
     description: string;
     status: TicketStatus;
-    priority: TicketPriority;
+    type: TicketType;
     created_at: string;
 }
 
 interface NewTicketForm {
     title: string;
     description: string;
-    priority: TicketPriority;
+    type: TicketType;
 }
 
 const Support: React.FC = () => {
@@ -27,7 +24,7 @@ const Support: React.FC = () => {
     const [newTicket, setNewTicket] = useState<NewTicketForm>({
         title: '',
         description: '',
-        priority: 'medium'
+        type: 'question'
     });
 
     const [tickets] = useState<Ticket[]>([
@@ -36,7 +33,7 @@ const Support: React.FC = () => {
             title: 'Server Neustart erforderlich',
             description: 'Der Server reagiert langsam und benötigt einen Neustart',
             status: 'open',
-            priority: 'high',
+            type: 'technical',
             created_at: new Date().toLocaleDateString('de-DE')
         },
         {
@@ -44,7 +41,7 @@ const Support: React.FC = () => {
             title: 'SSL-Zertifikat erneuern',
             description: 'Das SSL-Zertifikat läuft in 2 Wochen ab',
             status: 'in_progress',
-            priority: 'medium',
+            type: 'issue',
             created_at: new Date().toLocaleDateString('de-DE')
         }
     ]);
@@ -56,9 +53,9 @@ const Support: React.FC = () => {
         setShowNewTicketForm(false);
     };
 
-    const handlePriorityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        const value = e.target.value as TicketPriority;
-        setNewTicket(prev => ({ ...prev, priority: value }));
+    const handleTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const value = e.target.value as TicketType;
+        setNewTicket(prev => ({ ...prev, type: value }));
     };
 
     const getStatusColor = (status: TicketStatus): string => {
@@ -70,13 +67,28 @@ const Support: React.FC = () => {
         return colors[status];
     };
 
-    const getPriorityLabel = (priority: TicketPriority): string => {
+    const getTypeLabel = (type: TicketType): string => {
         const labels = {
-            low: 'Niedrig',
-            medium: 'Mittel',
-            high: 'Hoch'
+            question: 'Frage',
+            issue: 'Störung',
+            problem: 'Problem',
+            technical: 'Technische Frage',
+            billing: 'Zahlung',
+            other: 'Sonstiges'
         };
-        return labels[priority];
+        return labels[type];
+    };
+
+    const getTypeStyles = (type: TicketType): string => {
+        const styles = {
+            question: 'bg-blue-500/20 text-blue-200',
+            issue: 'bg-red-500/20 text-red-200',
+            problem: 'bg-orange-500/20 text-orange-200',
+            technical: 'bg-purple-500/20 text-purple-200',
+            billing: 'bg-green-500/20 text-green-200',
+            other: 'bg-gray-500/20 text-gray-200'
+        };
+        return styles[type];
     };
 
     const getStatusLabel = (status: TicketStatus): string => {
@@ -140,15 +152,18 @@ const Support: React.FC = () => {
                                         />
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-medium mb-1">Priorität</label>
+                                        <label className="block text-sm font-medium mb-1">Ticket-Typ</label>
                                         <select
-                                            value={newTicket.priority}
-                                            onChange={handlePriorityChange}
+                                            value={newTicket.type}
+                                            onChange={handleTypeChange}
                                             className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 focus:outline-none focus:border-purple-500"
                                         >
-                                            <option value="low">Niedrig</option>
-                                            <option value="medium">Mittel</option>
-                                            <option value="high">Hoch</option>
+                                            <option value="question">Frage</option>
+                                            <option value="issue">Störung</option>
+                                            <option value="problem">Problem</option>
+                                            <option value="technical">Technische Frage</option>
+                                            <option value="billing">Zahlung</option>
+                                            <option value="other">Sonstiges</option>
                                         </select>
                                     </div>
                                 </div>
@@ -184,18 +199,18 @@ const Support: React.FC = () => {
                                         <h3 className="font-semibold text-lg mb-1">{ticket.title}</h3>
                                         <div className="flex items-center gap-4 text-sm text-white/70">
                                             <span>Erstellt am: {ticket.created_at}</span>
-                                            <span className="px-2 py-0.5 rounded-full text-xs bg-white/10">
-                        {getPriorityLabel(ticket.priority)}
-                      </span>
+                                            <span className={`px-2 py-0.5 rounded-full text-xs ${getTypeStyles(ticket.type)}`}>
+                                                {getTypeLabel(ticket.type)}
+                                            </span>
                                         </div>
                                     </div>
                                     <div className={`w-2 h-2 rounded-full ${getStatusColor(ticket.status)}`} />
                                 </div>
                                 <p className="text-white/70 mb-4">{ticket.description}</p>
                                 <div className="flex justify-between items-center">
-                  <span className={`px-2 py-1 rounded-full text-xs ${getStatusStyles(ticket.status)}`}>
-                    {getStatusLabel(ticket.status)}
-                  </span>
+                                    <span className={`px-2 py-1 rounded-full text-xs ${getStatusStyles(ticket.status)}`}>
+                                        {getStatusLabel(ticket.status)}
+                                    </span>
                                     <button className="text-cyan-400 hover:text-cyan-300 transition-colors text-sm">
                                         Details anzeigen
                                     </button>

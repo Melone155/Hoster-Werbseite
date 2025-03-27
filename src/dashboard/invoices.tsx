@@ -1,4 +1,4 @@
-import { FileText, Download, Euro, Calendar, CheckCircle } from 'lucide-react';
+import { FileText, Download, Euro, Calendar, CheckCircle, FileCode } from 'lucide-react';
 import Navbar from '../components/Sidebar';
 
 interface Invoice {
@@ -10,6 +10,7 @@ interface Invoice {
     amount: number;
     status: 'paid' | 'pending' | 'overdue';
     pdfUrl: string;
+    xmlUrl: string;
 }
 
 const Invoices = () => {
@@ -22,7 +23,8 @@ const Invoices = () => {
             dueDate: '29.02.2024',
             amount: 49.99,
             status: 'paid',
-            pdfUrl: '/invoices/INV-2024-001.pdf'
+            pdfUrl: '/invoices/INV-2024-001.pdf',
+            xmlUrl: '/invoices/INV-2024-001.xml'
         },
         {
             id: 'INV-2024-002',
@@ -32,7 +34,8 @@ const Invoices = () => {
             dueDate: '03.03.2024',
             amount: 29.99,
             status: 'pending',
-            pdfUrl: '/invoices/INV-2024-002.pdf'
+            pdfUrl: '/invoices/INV-2024-002.pdf',
+            xmlUrl: '/invoices/INV-2024-002.xml'
         },
         {
             id: 'INV-2024-003',
@@ -42,7 +45,8 @@ const Invoices = () => {
             dueDate: '05.03.2024',
             amount: 19.99,
             status: 'pending',
-            pdfUrl: '/invoices/INV-2024-003.pdf'
+            pdfUrl: '/invoices/INV-2024-003.pdf',
+            xmlUrl: '/invoices/INV-2024-003.xml'
         },
         {
             id: 'INV-2024-004',
@@ -52,7 +56,8 @@ const Invoices = () => {
             dueDate: '24.02.2024',
             amount: 39.99,
             status: 'overdue',
-            pdfUrl: '/invoices/INV-2024-004.pdf'
+            pdfUrl: '/invoices/INV-2024-004.pdf',
+            xmlUrl: '/invoices/INV-2024-004.xml'
         }
     ];
 
@@ -82,9 +87,8 @@ const Invoices = () => {
         }
     };
 
-    const handleDownload = (invoice: Invoice) => {
-        //Downloade the PDF Dokument
-        console.log('Downloading invoice:', invoice.id);
+    const handleDownload = (invoice: Invoice, type: 'pdf' | 'xml') => {
+        console.log(`Downloading ${type} for invoice:`, invoice.id);
     };
 
     return (
@@ -147,13 +151,20 @@ const Invoices = () => {
                                                     <p className="font-medium">{invoice.amount.toFixed(2)} €</p>
                                                 </div>
                                             </div>
-                                            <div className="flex justify-end">
+                                            <div className="flex justify-end gap-2">
                                                 <button
-                                                    onClick={() => handleDownload(invoice)}
+                                                    onClick={() => handleDownload(invoice, 'pdf')}
                                                     className="flex items-center gap-2 px-4 py-2 bg-cyan-500 hover:bg-cyan-600 rounded-lg transition-colors"
                                                 >
                                                     <Download className="w-5 h-5" />
-                                                    PDF herunterladen
+                                                    PDF
+                                                </button>
+                                                <button
+                                                    onClick={() => handleDownload(invoice, 'xml')}
+                                                    className="flex items-center gap-2 px-4 py-2 bg-purple-500 hover:bg-purple-600 rounded-lg transition-colors"
+                                                >
+                                                    <FileCode className="w-5 h-5" />
+                                                    E-Rechnung
                                                 </button>
                                             </div>
                                         </div>
