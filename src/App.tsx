@@ -17,6 +17,7 @@ import MeineServer from "./dashboard/meine-server.tsx";
 import Order from "./dashboard/order.tsx";
 import Invices from "./dashboard/invoices.tsx";
 import Support from "./dashboard/support.tsx";
+import SupportOverview from "./dashboard/supportoverview.tsx";
 
 import NotFound from "./pages/NotFound.tsx";
 
@@ -40,6 +41,7 @@ function App() {
         <Route path="/dashboard/order" element={<Order />} />
         <Route path="/dashboard/invoices" element={<Invices />} />
         <Route path="/dashboard/support" element={<Support />} />
+        <Route path="/dashboard/support-overview" element={<SupportOverview />} />
 
         <Route path="/*" element={<NotFound />} />
       </Routes>

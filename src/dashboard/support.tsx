@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MessageSquarePlus } from 'lucide-react';
+import Navbar from "../components/Sidebar.tsx";
 
 type TicketType = 'question' | 'issue' | 'problem' | 'technical' | 'billing' | 'other';
 type TicketStatus = 'open' | 'in_progress' | 'closed';
@@ -110,6 +111,8 @@ const Support: React.FC = () => {
     };
 
     return (
+        <>
+        <Navbar />
         <div className="min-h-screen bg-[#020230] text-white py-8">
             <div className="container mx-auto px-4">
                 <div className="flex justify-between items-center mb-8">
@@ -221,6 +224,7 @@ const Support: React.FC = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 
