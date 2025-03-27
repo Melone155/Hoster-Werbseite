@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Logo from '../assets/Logo.webp';
 
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(true);
@@ -37,19 +38,12 @@ const Sidebar = () => {
 
             <div className="py-8 px-4">
                 <div className="flex items-center justify-center mb-8">
-                    <img
-                        src="../assets/logo.png"
-                        alt="Logo"
-                        className={`h-10 ${isOpen ? '' : 'w-10 object-cover'}`}
-                        onError={(e) => {
-                            e.currentTarget.src = "LOGO"
-                        }}
-                    />
+                    <img src={Logo} alt="Logo"  className="max-w-10 max-h-14 w-full h-auto"/>
                 </div>
 
                 <nav>
                     <ul className="space-y-2">
-                        {menuItems.map((item) => (
+                    {menuItems.map((item) => (
                             <li key={item.path}>
                                 <Link
                                     to={item.path}

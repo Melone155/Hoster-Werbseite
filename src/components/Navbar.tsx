@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Link, useLocation } from "react-router-dom"
+import Logo from "../assets/Logo.webp";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -15,17 +16,8 @@ const Navbar = () => {
       <header className="bg-[#020230] text-white">
         <div className="container mx-auto px-4">
           <nav className="flex justify-between items-center py-4">
-            {/* Logo links */}
             <Link to="/" className="flex items-center">
-              <img
-                  src="../assets/logo.png"
-                  alt="FuchsHost Logo"
-                  className="h-10"
-                  onError={(e) => {
-                    // Fallback wenn das Logo nicht geladen werden kann
-                    e.currentTarget.src = "LOGO"
-                  }}
-              />
+              <img src={Logo} alt="Logo" className="max-w-10 max-h-14 w-full h-auto"/>
             </Link>
 
             {/* Mobile Menu Button */}
