@@ -18,6 +18,8 @@ import Order from "./dashboard/order.tsx";
 import Invices from "./dashboard/invoices.tsx";
 import Support from "./dashboard/support.tsx";
 import SupportOverview from "./dashboard/supportoverview.tsx";
+import MyTickets from "./dashboard/mytickets.tsx";
+import CustomerOverview from "./dashboard/customeroverview.tsx";
 
 import NotFound from "./pages/NotFound.tsx";
 
@@ -37,11 +39,13 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/reset-password" element={<ResetPassword />} />
-        <Route path="/dashboard/meineserver" element={<MeineServer />} />
+        <Route path="/dashboard" element={<MeineServer />} />
         <Route path="/dashboard/order" element={<Order />} />
         <Route path="/dashboard/invoices" element={<Invices />} />
         <Route path="/dashboard/support" element={<Support />} />
         <Route path="/dashboard/support-overview" element={<SupportOverview />} />
+        <Route path="/dashboard/my-tickets" element={<MyTickets />} />
+        <Route path="/dashboard/customer-overview" element={<CustomerOverview />} />
 
         <Route path="/*" element={<NotFound />} />
       </Routes>
