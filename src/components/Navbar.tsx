@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Link, useLocation } from "react-router-dom"
-import Logo from "../assets/Logo.webp";
+import Logo from "../assets/Logo.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
