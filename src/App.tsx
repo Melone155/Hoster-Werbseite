@@ -20,6 +20,8 @@ import Support from "./dashboard/support.tsx";
 import SupportOverview from "./dashboard/supportoverview.tsx";
 import MyTickets from "./dashboard/mytickets.tsx";
 import CustomerOverview from "./dashboard/customeroverview.tsx";
+import ServerOverview from "./dashboard/VirtualServers.tsx";
+import PhysicalServers from "./dashboard/PhysicalServers.tsx";
 
 import NotFound from "./pages/NotFound.tsx";
 
@@ -46,6 +48,8 @@ function App() {
         <Route path="/dashboard/support-overview" element={<SupportOverview />} />
         <Route path="/dashboard/my-tickets" element={<MyTickets />} />
         <Route path="/dashboard/customer-overview" element={<CustomerOverview />} />
+        <Route path="/dashboard/server" element={<ServerOverview />} />
+        <Route path="/dashboard/physical-servers" element={<PhysicalServers />} />
 
         <Route path="/*" element={<NotFound />} />
       </Routes>
