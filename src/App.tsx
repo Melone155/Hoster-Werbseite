@@ -9,6 +9,7 @@ import VirtualDC from "./pages/virtual-data-center.tsx"
 import Domain from "./pages/domain.tsx"
 
 import RootServerShop from "./shop/rootserver-mieten.tsx"
+import WebServer from "./shop/WebServerConfig.tsx"
 
 import Login from "./dashboard/login.tsx"
 import Register from "./dashboard/register.tsx"
@@ -38,6 +39,7 @@ function App() {
         <Route path="/domain" element={<Domain />} />
 
         <Route path="/shop/root-server" element={<RootServerShop />} />
+        <Route path="/shop/webhosting" element={<WebServer />} />
 
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
