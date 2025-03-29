@@ -10,6 +10,7 @@ import Domain from "./pages/domain.tsx"
 
 import RootServerShop from "./shop/rootserver-mieten.tsx"
 import WebServer from "./shop/WebServerConfig.tsx"
+import CloudStorage from "./shop/CloudStorageConfig.tsx"
 
 import Login from "./dashboard/login.tsx"
 import Register from "./dashboard/register.tsx"
@@ -40,6 +41,7 @@ function App() {
 
         <Route path="/shop/root-server" element={<RootServerShop />} />
         <Route path="/shop/webhosting" element={<WebServer />} />
+        <Route path="/shop/cloud-storage" element={<CloudStorage />} />
 
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
